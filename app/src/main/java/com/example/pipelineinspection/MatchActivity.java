@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -200,7 +201,8 @@ public class MatchActivity extends AppCompatActivity {
         try {
             JSONObject obj = new JSONObject(text);
             String type = obj.optString("type", "");
-            JSONObject data = obj.optJSONObject("data");
+            JSONObject data = obj.optJSONObject("data"),
+                    boxList;
 
             switch (type) {
                 case "DB_ITEMS": {
@@ -275,6 +277,7 @@ public class MatchActivity extends AppCompatActivity {
 
                 // TODO: DETECTION_RESULT and MATCH_SCORE response
                 case "DETECTION_RESULT": {
+                    boxList = data.getJSONObject("boxes");
                     break;
                 }
 
@@ -289,6 +292,9 @@ public class MatchActivity extends AppCompatActivity {
                     double score = data.optDouble("detScore"),
                             similarity = data.optDouble("similarity");
                     String msg = "发现"+targetId+"的最佳匹配项，相似度得分为"+similarity;
+                    if (!boxList.isNull()) {    // FIXME: Which type boxList is? List? JsonObject? String?
+                        List boxInfo = boxList.get((String) matchedBoxIndex);
+                    }
                     break;
                 }
 
