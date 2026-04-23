@@ -271,6 +271,23 @@ public class MatchActivity extends AppCompatActivity {
                     });
                 }
 
+                case "DETECTION_RESULT": {
+                    break;
+                }
+
+                case "MATCH_SCORE": {
+                    break;
+                }
+
+                case "MATCH_SUCCESS": {
+                    long targetId = data.optLong("targetItemId");
+                    int matchedBoxIndex = data.optInt("boxIndex");
+                    double score = data.optDouble("detScore"),
+                            similarity = data.optDouble("similarity");
+                    String msg = "发现"+targetId+"的最佳匹配项，相似度得分为"+similarity;
+                    break;
+                }
+
                 default:
                     if ("CAMERA_STATUS".equals(type) && data != null) {
                         boolean ok = data.optBoolean("ok", false);
