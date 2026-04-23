@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    android:shape="oval">
+
+    <!-- 小圆的尺寸 -->
+    <size
+        android:width="80dp"
+        android:height="80dp" />
+
+    <!-- 小圆的颜色，后面有真正图标可以换成图片 -->
+    <solid android:color="@android:color/darker_gray" />
+
+</shape>

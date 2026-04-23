@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 服务器地址 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Server URL"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_server_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="例如：ws://10.0.2.2:8080/ws"
+            android:inputType="textUri"
+            android:textSize="14sp"
+            android:minHeight="48dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Connect / Disconnect -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Connect" />
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp" />
+
+            <Button
+                android:id="@+id/btn_disconnect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Disconnect" />
+        </LinearLayout>
+
+        <!-- PING -->
+        <Button
+            android:id="@+id/btn_send_ping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send PING"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Echo 输入 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Echo Text"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_echo_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="要发送的 ECHO 文本"
+            android:inputType="text"
+            android:textSize="14sp"
+            android:minHeight="48dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_send_echo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send ECHO"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 日志区域 -->
+
+        <Button
+            android:id="@+id/btn_pick_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择图片" />
+
+        <Button
+            android:id="@+id/btn_upload_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="上传图片" />
+        <Button
+            android:id="@+id/btn_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置服务器IP"/>
+
+
+        <TextView
+            android:id="@+id/tv_image_uri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="未选择图片" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#EEEEEE"
+            android:padding="8dp"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+</ScrollView>
