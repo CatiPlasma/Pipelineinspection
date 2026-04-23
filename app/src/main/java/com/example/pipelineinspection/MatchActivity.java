@@ -266,15 +266,9 @@ public class MatchActivity extends AppCompatActivity {
                 }
 
                 case "ACK": {
-                    double conf = data.optDouble("conf"),
-                            iou = data.optDouble("iou"),
-                            simThreshold = data.optDouble("simThreshold"),
-                            diffTh = data.optDouble("diffTh");
-                    int inputSize = data.optInt("inputSize"),
-                            topK = data.optInt("topK");
-                    runOnUiThread(() ->
-                            tvStatus.setText(String.format("Cat: Recived ACK!\nconf: %f, iou: %f, simThreshold: %f, diffTh: %f\ninputSize: %d, topK: %d", conf, iou, simThreshold, diffTh, inputSize, topK)));
-                    break;
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Recived ACK", Toast.LENGTH_SHORT).show();
+                    });
                 }
 
                 default:
