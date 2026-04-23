@@ -241,6 +241,7 @@ public class MatchActivity extends AppCompatActivity {
                     Bitmap bmp = BitmapFactory.decodeByteArray(jpeg, 0, jpeg.length);
                     if (bmp == null) break;
 
+                    // TODO: Add annotates to me if annotates added by Python can't satisfy; if need add here, only add to succeeded one
                     runOnUiThread(() -> ivMonitor.setImageBitmap(bmp));
 
                     // 状态提示（抓拍不会频繁，但仍避免过于频繁 setText）
@@ -265,12 +266,14 @@ public class MatchActivity extends AppCompatActivity {
                     break;
                 }
 
+                // FIXME: ACK is not standard type; Debug output, delete me before release!
                 case "ACK": {
                     runOnUiThread(() -> {
                         Toast.makeText(this, "Recived ACK", Toast.LENGTH_SHORT).show();
                     });
                 }
 
+                // TODO: DETECTION_RESULT and MATCH_SCORE response
                 case "DETECTION_RESULT": {
                     break;
                 }
@@ -279,6 +282,7 @@ public class MatchActivity extends AppCompatActivity {
                     break;
                 }
 
+                // TODO: Add a window to tell client here is what he/she want
                 case "MATCH_SUCCESS": {
                     long targetId = data.optLong("targetItemId");
                     int matchedBoxIndex = data.optInt("boxIndex");
